@@ -1,0 +1,31 @@
+@import url(./search/search-bar.css);
+@import url(./search/filter.css);
+@import url(./main/recipe.css);
+
+/*** structure de base ***/
+body {
+	margin: auto;
+	max-width: 1200px;
+}
+
+header {
+	font-family: Lato, sans-serif;
+	text-align: center;
+}
+
+header img {
+	margin-top: 3rem;
+	width: 250px;
+    height: 90px;
+	
+}
+
+html {
+	box-sizing: border-box;
+	color: #353535;
+	font-family: Lato, 'Helvetica Neue', Arial, sans-serif;
+	font-size: 1rem;
+	font-weight: 400;
+}
+
+
