@@ -1,23 +1,19 @@
 let list = new List();
 
 list.hydrate(recipes); // introduit les données
-list.display(list.all); // affichage des 
+list.display(list.all); // affichage de la liste
 
 
-//--Ingredients
+
 let ingredientFilter = new FilterByIngredient();
-list.addFilter(ingredientFilter); // ajoute le filtre ingredient
+let applianceFilter = new FilterByAppliance();
+let ustensilFilter = new FilterByUstensils();
 
 
+list.addFilter(ingredientFilter); // ajoute le filtre ingredients
+list.addFilter(applianceFilter); // ajoute le filtre appliance
+list.addFilter(ustensilFilter); // ajoute le filtre ustensils
 
 
-//-- Appliances
-//let applianceFilter = new FilterByAppliance();
-//list.addFilter(applianceFilter); // ajoute le filtre appliance
-
-
-
-
-//-- Ustensils
-
-
+list.search = new Search();
+list.search.listen();

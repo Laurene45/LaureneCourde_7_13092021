@@ -1,120 +1,130 @@
-.listUlApp>li:hover {
-    background-color: #ffff;
-    color: #68D9A4;
-}
-
-#ingredients>button:hover {
+/*.ingredients>button:hover {
     background-color: #0751bc;
 }
 
-#ingredientTag>i:hover {
-    color: #0751bc;
-}
-
-#appareil>button:hover {
+.appliance>button:hover {
     background-color: #2caf72;
 }
 
-#appareilTag>i:hover {
-    color: #2caf72;
-}
-
-#ustensiles>button:hover {
+.ustensils>button:hover {
     background-color: #dd2c17;
 }
 
-#ustensileTag>i:hover {
+/*#ingredientTag>i:hover {
+    color: #0751bc;
+}*/
+
+/*#appareilTag>i:hover {
+    color: #2caf72;
+}*/
+
+/*#ustensileTag>i:hover {
     color: #dd2c17;
-}
+}*/
 
-#closeIngredientsFilter,
-#closeAppareilFilter,
-#closeUstensilesFilter {
-    font-size: 1.125rem;
-    left: 32rem;
-    position: absolute;
-    top: 1.8rem;
-}
-
-#filter {
+#filters {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: flex-start;
     margin: 1rem auto;
     padding: 0;
-    width: 95%;
+    max-width: 95%;
 }
 
-#hiddenIngredientsFilter,
-#hiddenAppareilFilter,
-#hiddenUstensilesFilter {
+.fa-chevron-up {
+    font-size: 1rem;
+    left: 28rem;
+    position: absolute;
+    top: 1.8rem;
+}
+
+
+.menu-ingredients,
+.menu-appliance,
+.menu-ustensils {
     border-radius: 5px;
     color: #ffff;
     display: none;
     position: absolute;
-    top: 16.5rem;
-    width: 35rem;
+    top: 17rem;
+    width: 28rem;
     z-index: 10;
     
 }
 
-#ingredients>button,
-#appareil>button,
-#ustensiles>button {
+.ingredients>button,
+.appliance>button,
+.ustensils>button {
     align-items: center;
     border: none;
     border-radius: .3125rem;
     color: #ffff;
     cursor: pointer;
     display: flex;
-    font-size: 1.125rem;
+    font-size: 1rem;
     height: 4.3rem;
     justify-content: space-between;
     margin-bottom: 1rem;
     padding: 1rem;
     transition: linear .3s;
-    width: 10rem;
-    margin-top: 0.5rem;
+    width: 8rem;
+    margin-top: 1rem;
 }
 
-.listUlIng,
-.listUlApp,
-.listUlUst {
+
+.listUl-ingredients,
+.listUl-appliance,
+.listUl-ustensils {
     display: flex;
     flex-wrap: wrap;
     height: fit-content;
-    justify-content: space-evenly;
+    /*justify-content: space-evenly;*/
     list-style: none;
     padding: .5rem;
+    overflow-y: scroll;
+    max-height: 400px;
+    
 }
 
-.listUlIng>li,
-.listUlApp>li,
-.listUlUst>li {
-    font-size: 1.21rem;
+.listUl-ingredients::-webkit-scrollbar,
+.listUl-appliance::-webkit-scrollbar,
+.listUl-ustensils::-webkit-scrollbar {
+    width: 3px;
+    background-color: #ffffff;
+  }
+
+.listUl-ingredients>li,
+.listUl-appliance>li,
+.listUl-ustensils>li {
+    font-size: 0.9rem;
     overflow: hidden;
-    padding: .5rem 1rem;
+    padding: .5rem .2rem;
     text-align: start;
     text-overflow: ellipsis;
     white-space: nowrap;
     width: 9rem;
 }
 
-.listUlIng>li.list-ingredients.selected,
-.listUlApp>li.list-appareil.selected,
-.listUlUst>li.list-ustensiles.selected {
-    background-color: #000;
-}
-
-.listUlIng>li:hover {
+.listUl-ingredients>li:hover {
     background-color: #ffff;
     color: #3282F7;
 }
 
-#inputIngredients,
-#inputAppareil,
-#inputUstensiles {
+.listUl-appliance>li:hover {
+    background-color: #ffff;
+    color: #68D9A4;
+}
+
+.listUl-ustensils>li:hover {
+    background-color: #ffff;
+    color: #ED6454;
+}
+
+
+.input-ingredients,
+.input-appliance,
+.input-ustensils {
     border: none;
     border-radius: 5px;
     color: #ffff;
@@ -131,12 +141,21 @@
 #tagsBadges {
     display: flex;
     justify-content: flex-start;
+    flex-wrap: wrap;
     margin-left: 2.5rem;
+    
 }
 
-#tagsBadges .selected-tag {
+#tagsBadges .selected-tag-ingredients {
     background-color: #3282F7;
+}
 
+#tagsBadges .selected-tag-appliance {
+    background-color: #2caf72;
+}
+
+#tagsBadges .selected-tag-ustensils {
+    background-color: #ED6454;
 }
 
 #tagsBadges .tag {
@@ -147,28 +166,33 @@
     cursor: pointer;
 }
 
-#tagsBadges>#appareilTag,
-#hiddenAppareilFilter,
-#appareil>button,
-#inputAppareil {
+
+.menu-appliance,
+.appliance>button,
+.input-appliance{
     background-color: #68D9A4;
 }
 
-
-#hiddenIngredientsFilter,
-#ingredients>button,
-#inputIngredients {
+.menu-ingredients,
+.ingredients>button,
+.input-ingredients {
     background-color: #3282F7;
 }
 
-#tagsBadges>#ustensileTag,
-#hiddenUstensilesFilter,
-#ustensiles>button,
-#inputUstensiles {
+.menu-ustensils,
+.ustensils>button,
+.input-ustensils {
     background-color: #ED6454;
 }
 
-/*#tagsBadges> .tag {
+.input-ingredients::placeholder,
+.input-appliance::placeholder,
+.input-ustensils::placeholder{
+    color : #fff;
+    opacity: 0.6;
+}
+
+#tagsBadges> .tag {
     align-items: center;
     border-radius: .25rem;
     color: #fff;
@@ -178,8 +202,7 @@
     margin: 0.5rem 1rem .25rem 0;
     padding: .5rem 1rem;
     width: fit-content;
-}*/
-
+}
 
 #ingredientTag>i,
 #appareilTag>i,
@@ -188,42 +211,80 @@
 }
 
 
-.listUlUst>li:hover {
-    background-color: #ffff;
-    color: #ED6454;
-}
 
-
-#inputIngredients::placeholder,
-#inputAppareil::placeholder,
-#inputUstensiles::placeholder{
-    color : #fff;
-    opacity: 0.6;
-}
-
-
-
-@media screen and (min-width: 768px) {
-    #filter {
-        flex-direction: row;
-    }
-
-    #ingredients>button,
-    #appareil>button,
-    #ustensiles>button {
-        margin-right: 2rem;
+@media screen and (min-width: 900px) { 
+    .listUl-ingredients>li,
+    .listUl-appliance>li,
+    .listUl-ustensils>li {
+        font-size: 1rem;
+        width: 8rem;
+        
     }
 }
 
 
 @media screen and (max-width: 768px) {
-    #filter {
-        flex-direction: column;
+    .listUl-ingredients>li,
+    .listUl-appliance>li,
+    .listUl-ustensils>li {
+        font-size: 0.9rem;
+        width: 6rem;
+        margin-left: 30px;
     }
-	#ingredients>button,
-    #appareil>button,
-    #ustensiles>button {
-        width: 100%;
-        margin-right: 2rem;
+}
+
+@media screen and (min-width: 512px) {
+    #filters {
+        flex-direction: row;
     }
+
+    .ingredients>button,
+    .appliance>button,
+    .ustensils>button {
+        margin-right: 1rem;
+    }
+
+    .fa-chevron-up {
+        left: 25rem;
+    }
+
+}
+
+@media screen and (max-width: 512px) {
+
+    #filters {
+        flex-direction: row;
+        align-content: center;
+        
+    }
+
+    .listUl-ingredients>li,
+    .listUl-appliance>li,
+    .listUl-ustensils>li {
+        font-size: 0.9rem;
+        width: 6rem;
+        margin-left: 20px;
+
+    }
+
+    .ingredients>button,
+    .appliance>button,
+    .ustensils>button {
+        margin-right: 0.3rem;
+    }
+
+    .menu-appliance, .menu-ustensils {
+        top :25rem;
+    }
+
+    .fa-chevron-up {
+        left: 25rem;
+    }
+
+    #tagsBadges .tag {
+       font-size: 0.8rem;
+    
+    }
+    
+  
 }

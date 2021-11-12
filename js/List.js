@@ -3,8 +3,8 @@ class List
     constructor()
     {
         this.all = [];
+        this.filtered = [];
         this.filters = [];
-        this.filterSelected = [];
         this.searchValue = '';
         this.selected = [];
         
@@ -14,36 +14,34 @@ class List
     add(recipe)
     {
         this.all.push(recipe)
+        
     }
     
-
-    //-- Ajoute filtres
+    //-- Ajoute filtres // pour une seule action
     addFilter(filter)
     {
         this.filters.push(filter);
-        filter.collect();
-        //this.filterSelected = filter.collect(list.all);  // passe une première fois 
-        filter.buildDropdown();
         filter.listenToDropdown();
         filter.listenForInputSearch();
-        filter.listenForFilterTags();
+        filter.all = filter.collect(this.all);  // passe une première fois 
+        filter.filtered = filter.all;
+        filter.build();
         
     }
 
-    /*build() // reprend les actions multiples
-    {
-        list.display();
+    build(recipes) // repasse les actions multiples
+    //quand la liste se reconstruit 
+    { 
+        list.display(recipes);
 
+        //ici que la boucle est utile
         this.filters.forEach(filter => {
-
-            filter.filterSelected = filter.collect(this.filterSelected)
-            filter.display(filter.filterSelected)
-            filter.listenToDropdown();
-            filter.listenForInputSearch();
-            filter.listenForFilterTags();
-
+            filter.filtered = filter.collect(recipes);
+            filter.build(recipes);
+           
         })
-    }*/
+    }
+    
 
     //-- Affiche recettes
     display(recipes)
@@ -52,8 +50,10 @@ class List
         recipes.forEach(recipe =>
         {
             document.getElementById('recipes').innerHTML += recipe.render();
-        })        
+        }) 
+        
     }
+   
 
     //-- Introduit les données
     hydrate(recipes)
@@ -62,8 +62,12 @@ class List
             let recipe = new Recipe(item);
             this.all.push(recipe);
         })
+
+        this.filtered = this.all;
+        
     }
 
+    
 
 
     
