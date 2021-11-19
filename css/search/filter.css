@@ -1,27 +1,3 @@
-/*.ingredients>button:hover {
-    background-color: #0751bc;
-}
-
-.appliance>button:hover {
-    background-color: #2caf72;
-}
-
-.ustensils>button:hover {
-    background-color: #dd2c17;
-}
-
-/*#ingredientTag>i:hover {
-    color: #0751bc;
-}*/
-
-/*#appareilTag>i:hover {
-    color: #2caf72;
-}*/
-
-/*#ustensileTag>i:hover {
-    color: #dd2c17;
-}*/
-
 #filters {
     display: flex;
     flex-direction: column;
@@ -38,7 +14,6 @@
     position: absolute;
     top: 1.8rem;
 }
-
 
 .menu-ingredients,
 .menu-appliance,
@@ -92,7 +67,7 @@
 .listUl-ustensils::-webkit-scrollbar {
     width: 3px;
     background-color: #ffffff;
-  }
+}
 
 .listUl-ingredients>li,
 .listUl-appliance>li,
@@ -121,7 +96,6 @@
     color: #ED6454;
 }
 
-
 .input-ingredients,
 .input-appliance,
 .input-ustensils {
@@ -142,8 +116,7 @@
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
-    margin-left: 2.5rem;
-    
+    margin-left: 2.5rem;  
 }
 
 #tagsBadges .selected-tag-ingredients {
@@ -165,7 +138,6 @@
     border-radius: 5px;
     cursor: pointer;
 }
-
 
 .menu-appliance,
 .appliance>button,
@@ -211,7 +183,7 @@
 }
 
 
-
+/* responsive*/
 @media screen and (min-width: 900px) { 
     .listUl-ingredients>li,
     .listUl-appliance>li,

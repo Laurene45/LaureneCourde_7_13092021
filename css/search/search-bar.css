@@ -48,6 +48,7 @@
     color: #ed6454;
 }
 
+/* responsive */
 @media screen and (min-width: 900px) {
     #searchBar>i {
         font-size: 2rem;
