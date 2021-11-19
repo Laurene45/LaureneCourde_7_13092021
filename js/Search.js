@@ -55,7 +55,7 @@ class Search
     }
 
 
-    //-- Paramètre de la recherche par terme recherché
+    //-- Paramètre de la recherche par chaîne de caractères
     search()
     {
         let items = [];
