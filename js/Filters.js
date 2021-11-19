@@ -25,8 +25,7 @@ class Filters
     {
         document.querySelector('body').addEventListener('click', (e) => {
             let parent = e.target.closest(`.dropdown-wrapper[data-type="${this.type}"]`)
-
-            if (!parent)
+            if(!parent)
             {
                 document.getElementById(`dropdown-${this.type}`).style.width = "8rem";             
                 document.getElementById(`menu-${this.type}`).style.display = "none"; 
@@ -34,8 +33,10 @@ class Filters
             this.searchValue = '';
             document.getElementById(`${this.type}`).value = '';
             this.filtered = this.all;
+
             let tags = document.querySelectorAll(`.list-${this.type}`);
-            tags.forEach((tag) => {
+            tags.forEach((tag) => 
+            {
                 tag.style.display = "block"; 
             })
             document.getElementById(`${this.type}`).focus();
@@ -48,13 +49,12 @@ class Filters
     {
         let html = '';
 
-        this.selected.forEach(tag => {
-
+        this.selected.forEach(tag =>
+        {
             html += `<span class="selected-tag-${this.type} tag" data-filter="${tag}">${tag}
                         <i class="far fa-times-circle closed-${this.type}" role="button"></i>
                     </span>
                     `;
-
         })
         document.getElementById(`tag-${this.type}`).innerHTML = html;
     }
@@ -64,25 +64,25 @@ class Filters
     filterByInput()
     {
         let tags = document.querySelectorAll(`.list-${this.type}`);
-
         tags.forEach((tag) => {
             let name = tag.getAttribute("data-filter");
       
-            if (!name.toLowerCase().includes(this.searchValue.toLowerCase())) {
+            if(!name.toLowerCase().includes(this.searchValue.toLowerCase()))
+            {
                 tag.style.display = "none";
             
             } else {
                 tag.style.display = "block";
             }
         })
-        
     }
 
 
     //-- Dropdown Input: Recherche écrite
     listenForInputSearch() 
     {
-        document.getElementById(`${this.type}`).addEventListener("input", (e) => {
+        document.getElementById(`${this.type}`).addEventListener("input", (e) =>
+        {
             this.searchValue = e.target.value;
             this.filterByInput();
         })
@@ -100,8 +100,7 @@ class Filters
                 this.selected.add(tag);
                 this.displayTags();
                 list.filtered = this.filter(list.filtered);
-                list.build(list.filtered); 
-                
+                list.build(list.filtered);
             })
         })
     }
@@ -141,7 +140,8 @@ class Filters
     //-- Dropdown: fermeture
     openDropdown()
     {
-        document.getElementById(`dropdown-${this.type}`).addEventListener('click', () => {
+        document.getElementById(`dropdown-${this.type}`).addEventListener('click', () =>
+        {
             document.getElementById(`dropdown-${this.type}`).style.width = "26.5rem";           
             document.getElementById(`menu-${this.type}`).style.display = "block"; 
             document.getElementById(`menu-${this.type}`).style.width= "26.5rem";
@@ -154,24 +154,19 @@ class Filters
     render()
     {
         let html = `<ul class="listUl-${this.type}"> `;
-
         this.filtered.forEach((tag)=>
         {
             html += `<li class="list-${this.type}" data-filter="${tag}">${tag}</li>`
         })
-        
         html += '</ul>'
-        
         document.getElementById(`${this.type}-example`).innerHTML = html; 
-       
     }
 
 
     // -- Affiche HTML : les dropdowns
     renderDropdown()
     {
-        document.getElementById('filters').innerHTML += 
-            
+        document.getElementById('filters').innerHTML +=   
         `<div class="${this.type} dropdown-wrapper" data-type="${this.type}">
             <button id="dropdown-${this.type}">${this.type} <i class="fas fa-chevron-down" role="button"></i></button>
             <div id="menu-${this.type}" class="menu-${this.type}">
@@ -183,8 +178,5 @@ class Filters
                 
             </div>
         </div>`
-
-    }
-
-    
+    }  
 }

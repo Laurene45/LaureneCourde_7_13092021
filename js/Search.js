@@ -4,30 +4,45 @@ class Search
     {
         this.searchValue = '';
         this.renderMessage();
-
     }
 
+
+    //-- Message disparâit
+    hideMessage()
+    {
+        document.getElementById('message').style.display = 'none';
+        document.getElementById('recipes').style.display = 'flex';
+    }
+
+    //-- Listener sur la recherche Input
     listen()
     {
         document.getElementById('searchBar').addEventListener('input', (e) => {
+            list.filtered = list.all;
+        
             this.searchValue = e.target.value.toLowerCase();
-            if(this.searchValue.length <= 2)
+
+            if(this.searchValue.length >= 3) 
+            {
+                this.hideMessage()
+                list.filtered = this.search();
+            } 
+
+            list.build(list.filtered)
+
+            if(list.filtered.length === 0)
             {
                 this.showMessage();
             }
-            else if (this.searchValue.length >= 3) 
-            {
-                this.hideMessage()
-                this.search();
 
-            } else {
-                list.build(list.filtered); 
+            if(this.searchValue == '')
+            {
+                list.filtered = list.all;
             }
-            
-                 
         })
     }
 
+    //-- Construction du Message Html
     renderMessage()
     {
         document.getElementById('message').innerHTML +=
@@ -40,71 +55,27 @@ class Search
         `
     }
 
+    //-- Paramètre de la recherche par terme
     search()
     {
         let items = [];
         list.filtered.forEach(recipe => {
 
-            //terme recherché dans le titre
-            if(recipe.name.toLowerCase().indexOf(this.searchValue) >= 0)
+            recipe.terms.forEach(term =>
             {
-                items.push(recipe);
-                return; 
-            }
-
-            //terme recherché dans ustensils
-            recipe.ustensils.forEach(ustensil => {
-               if(ustensil.indexOf(this.searchValue) >= 0)
+                if(term.indexOf(this.searchValue) > -1)
                 {
-                    items.push(recipe);
-                    return;
+                    items.push(recipe)
                 }
             })
-
-            //terme recherché dans appliance
-            if(recipe.appliance.toLowerCase().indexOf(this.searchValue) >= 0)
-            {
-                items.push(recipe);
-                return; 
-            }
-            
-            //terme recherché dans description
-            if(recipe.description.indexOf(this.searchValue) >= 0)
-            {
-                items.push(recipe);
-                return; 
-            }
-         
-            // terme recherché dans ingrédients
-            recipe.ingredients.forEach(ingredient => {
-                
-                if(ingredient.ingredient.indexOf(this.searchValue) >= 0)
-                 {
-                     items.push(recipe);
-                     return;
-                 }
-             })
         })
-        list.build(items);
+        return items; 
     }
 
-
-    // affichage du message
-    hideMessage()
-    {
-        
-        document.getElementById('message').style.display = 'none';
-        document.getElementById('recipes').style.display = 'flex';
-
-    }
-
+    //-- Message s'affiche
     showMessage()
     {
         document.getElementById('message').style.display = 'flex';
         document.getElementById('recipes').style.display = 'none';
-
-
     }
-
-
 }

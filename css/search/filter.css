@@ -1,27 +1,3 @@
-/*.ingredients>button:hover {
-    background-color: #0751bc;
-}
-
-.appliance>button:hover {
-    background-color: #2caf72;
-}
-
-.ustensils>button:hover {
-    background-color: #dd2c17;
-}
-
-/*#ingredientTag>i:hover {
-    color: #0751bc;
-}*/
-
-/*#appareilTag>i:hover {
-    color: #2caf72;
-}*/
-
-/*#ustensileTag>i:hover {
-    color: #dd2c17;
-}*/
-
 #filters {
     display: flex;
     flex-direction: column;
@@ -39,7 +15,6 @@
     top: 1.8rem;
 }
 
-
 .menu-ingredients,
 .menu-appliance,
 .menu-ustensils {
@@ -50,7 +25,6 @@
     top: 17rem;
     width: 28rem;
     z-index: 10;
-    
 }
 
 .ingredients>button,
@@ -72,7 +46,6 @@
     margin-top: 1rem;
 }
 
-
 .listUl-ingredients,
 .listUl-appliance,
 .listUl-ustensils {
@@ -92,7 +65,7 @@
 .listUl-ustensils::-webkit-scrollbar {
     width: 3px;
     background-color: #ffffff;
-  }
+}
 
 .listUl-ingredients>li,
 .listUl-appliance>li,
@@ -121,7 +94,6 @@
     color: #ED6454;
 }
 
-
 .input-ingredients,
 .input-appliance,
 .input-ustensils {
@@ -143,7 +115,6 @@
     justify-content: flex-start;
     flex-wrap: wrap;
     margin-left: 2.5rem;
-    
 }
 
 #tagsBadges .selected-tag-ingredients {
@@ -165,7 +136,6 @@
     border-radius: 5px;
     cursor: pointer;
 }
-
 
 .menu-appliance,
 .appliance>button,
@@ -211,7 +181,7 @@
 }
 
 
-
+/* responsive*/
 @media screen and (min-width: 900px) { 
     .listUl-ingredients>li,
     .listUl-appliance>li,
@@ -284,7 +254,6 @@
     #tagsBadges .tag {
        font-size: 0.8rem;
     
-    }
-    
+    }  
   
 }

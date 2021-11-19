@@ -5,7 +5,6 @@
 	flex-direction: row;
 }
 
-
 #recipes>article {
 	background-color: #E7E7E7;
 	border-radius: 5px;
@@ -91,14 +90,13 @@
 	
 }
 
-
 #recipes>article>img {
 	height: 11.125rem;
 	width: 23.75rem;
 }
 
 
-
+/* responsive */
 @media screen and (max-width: 768px) {
 	#recipes {
 		flex-direction: row;

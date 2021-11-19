@@ -3,10 +3,9 @@ class FilterByUstensils extends Filters
     constructor()
     {
         super('ustensils');
-
     }
 
-    //-- Récupère la collecte de données appareil
+    //-- Récupère la collecte de données ustensils
     collect(recipes)
     {
         let list = new Set();
@@ -16,16 +15,13 @@ class FilterByUstensils extends Filters
                 list.add(ust);
             })
         });
-
         return list;
-
     }
     
     
-    //-- Filtre : appareils dans les recettes avec l'appareil sélectionné dropdown
+    //-- Filtre : appareils dans les recettes avec l'ustensil sélectionné dropdown
     filter(recipes)
     {
-        
         return recipes.filter(recipe => {
             let isSelectable = false;
             let count = 0;
@@ -39,15 +35,7 @@ class FilterByUstensils extends Filters
             if (count == this.selected.size) {
                 isSelectable = true;
             }
-
             return isSelectable;
         })
-
-       
-        
     }
-    
-    
-    
-
 }
