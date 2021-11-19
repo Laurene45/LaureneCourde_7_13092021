@@ -3,7 +3,6 @@ class FilterByAppliance extends Filters
     constructor()
     {
         super('appliance');
-
     }
 
     //-- Récupère la collecte de données appareil
@@ -13,11 +12,8 @@ class FilterByAppliance extends Filters
 
         recipes.forEach(recipe => {
             list.add(recipe.appliance.toLowerCase());
-        
         });
-
         return list;
-
     }
     
 
@@ -28,13 +24,9 @@ class FilterByAppliance extends Filters
             return recipes;
         }
 
-        return recipes.filter(recipe => {
+        return recipes.filter(recipe => 
+        {
             return !!this.selected.has(recipe.appliance.toLowerCase());
         })
-    
     }
-    
-    
-    
-
 }

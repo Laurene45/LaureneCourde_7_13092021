@@ -5,7 +5,6 @@
 	flex-direction: row;
 }
 
-
 #recipes>article {
 	background-color: #E7E7E7;
 	border-radius: 5px;
@@ -88,17 +87,14 @@
 #recipes>article>div.recipeTitle>span>i {
 	margin-right: .3rem;
 	margin-left: -25px;
-	
 }
-
 
 #recipes>article>img {
 	height: 11.125rem;
 	width: 23.75rem;
 }
 
-
-
+/* RESPONSIVE  */
 @media screen and (max-width: 768px) {
 	#recipes {
 		flex-direction: row;
@@ -120,6 +116,4 @@
 		flex-direction: column;
 		align-content: center;
 	}
-
-	
 }

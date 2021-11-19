@@ -7,14 +7,12 @@ class List
         this.filters = [];
         this.searchValue = '';
         this.selected = [];
-        
     }
     
     //-- Ajoute recettes
     add(recipe)
     {
         this.all.push(recipe)
-        
     }
     
     //-- Ajoute filtres // pour une seule action
@@ -35,10 +33,10 @@ class List
         list.display(recipes);
 
         //ici que la boucle est utile
-        this.filters.forEach(filter => {
+        this.filters.forEach(filter => 
+        {
             filter.filtered = filter.collect(recipes);
             filter.build(recipes);
-           
         })
     }
     
@@ -58,13 +56,12 @@ class List
     //-- Introduit les données
     hydrate(recipes)
     {
-        recipes.forEach((item) => {
+        recipes.forEach((item) => 
+        {
             let recipe = new Recipe(item);
             this.all.push(recipe);
         })
-
         this.filtered = this.all;
-        
     }
 
     

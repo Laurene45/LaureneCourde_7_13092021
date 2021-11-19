@@ -10,7 +10,6 @@ class Recipe
         this.description= recipe.description;
         this.appliance= recipe.appliance;
         this.ustensils= recipe.ustensils;
-        
     }
 
     
@@ -41,25 +40,25 @@ class Recipe
     renderIngredients()
     {
         let html = '';
-
-        this.ingredients.forEach((ingr) => {
+        this.ingredients.forEach((ingr) => 
+        {
             html += `<li id="ingredient"><span class="ingr-name">${ingr.ingredient}</span>`;
-
-            if (ingr.hasOwnProperty('quantity') || ingr.hasOwnProperty('unit')) 
+            if(ingr.hasOwnProperty('quantity') || ingr.hasOwnProperty('unit')) 
             {
                 html += ' : ';
             }
-            if (ingr.hasOwnProperty('quantity')) 
+
+            if(ingr.hasOwnProperty('quantity')) 
             {
                 html += ingr.quantity;
             } 
-            if (ingr.hasOwnProperty('unit')) 
+
+            if(ingr.hasOwnProperty('unit')) 
             {
                 html += ` ${ingr.unit}`;
             }
             html += '</li>'
         });
-       
         return html;
     }
 }
