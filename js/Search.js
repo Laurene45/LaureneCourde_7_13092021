@@ -37,6 +37,7 @@ class Search
             if(this.searchValue == '')
             {
                 list.filtered = list.all;
+                this.hideMessage();
             } 
         })
     }
@@ -95,10 +96,10 @@ class Search
             recipe.ingredients.forEach(ingredient => {
                 
                 if(ingredient.ingredient.indexOf(this.searchValue) >= 0)
-                 {
+                {
                      items.push(recipe);
                      return;
-                 }
+                }
             })
         })
         return items;
