@@ -11,7 +11,6 @@ class FilterByAppliance extends Filters
         let list = new Set();
         recipes.forEach(recipe => {
             list.add(recipe.appliance.toLowerCase());
-        
         });
         return list;
     }

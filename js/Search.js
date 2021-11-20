@@ -7,7 +7,7 @@ class Search
     }
 
 
-    //-- Message disparâit
+    //-- Message disparait
     hideMessage()
     {
         document.getElementById('message').style.display = 'none';
@@ -38,6 +38,7 @@ class Search
             if(this.searchValue == '')
             {
                 list.filtered = list.all;
+                this.hideMessage();
             }
         })
     }
