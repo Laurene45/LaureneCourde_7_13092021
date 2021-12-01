@@ -25,7 +25,6 @@
     top: 17rem;
     width: 28rem;
     z-index: 10;
-    
 }
 
 .ingredients>button,
@@ -46,7 +45,6 @@
     width: 8rem;
     margin-top: 1rem;
 }
-
 
 .listUl-ingredients,
 .listUl-appliance,
@@ -116,8 +114,8 @@
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
-    margin-left: 2.5rem;  
-    margin-top: 2rem;
+    margin-left: 2.5rem;
+    margin-top: 0.5rem;
 }
 
 #tagsBadges .selected-tag-ingredients {
@@ -257,7 +255,6 @@
     #tagsBadges .tag {
        font-size: 0.8rem;
     
-    }
-    
+    }  
   
 }
