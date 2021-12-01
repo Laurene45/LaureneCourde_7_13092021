@@ -1,7 +1,7 @@
 #searchBar {
     margin: 0 auto;
     position: relative;
-    width: 95%;
+    width: 97.5%;
 }
 
 #searchBar>i {
@@ -20,7 +20,7 @@
     border-radius: .3125rem;
     font-size: 1rem;
     height: 2.8125rem;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     margin-top: 1rem;
     outline: none;
     padding: 2rem;
@@ -51,12 +51,19 @@
 /* responsive */
 @media screen and (min-width: 900px) {
     #searchBar>i {
-        font-size: 2rem;
-        right: 2rem;
-        top: 2.2rem;
+        top: 1.2rem;
+        margin-right: 1rem;
     }
 
     .searchBarInput {
         height: 4.3125rem;
     }
+}
+
+@media screen and (max-width: 512px) {
+    #searchBar>i {
+        top: 1.2rem;
+        margin-right: 1rem;
+    }
+
 }

@@ -39,8 +39,53 @@ class Search
                 list.filtered = list.all;
                 this.hideMessage();
             } 
-        })
+        });
     }
+
+    
+    //-- validation de la recette
+    recipeIsValid(recipe)
+    {
+        //terme recherché dans le titre
+        if(recipe.name.toLowerCase().indexOf(this.searchValue) >= 0)
+        {
+            return true;
+        }
+        
+        //terme recherché dans ustensils
+        recipe.ustensils.forEach(ustensil => {
+            if(ustensil.toLowerCase().indexOf(this.searchValue) >= 0)
+            {
+                return true;
+            }
+        })
+        
+        //terme recherché dans appareil
+        if(recipe.appliance.toLowerCase().indexOf(this.searchValue) >= 0)
+        {
+            return true;
+        }
+        
+        //terme recherché dans description
+        if(recipe.description.toLowerCase().indexOf(this.searchValue) >= 0)
+        {
+            return true;
+        }
+        
+        // terme recherché dans ingrédients
+        for(let i=0; i < recipe.ingredients.lenght; i++)
+        {
+            let ingredient = recipe.ingredients[i].ingredient;
+            
+            if(ingredient.ingredient.toLowerCase().indexOf(this.searchValue) >= 0)
+            {
+                return true;
+            }
+        }
+        
+        return false
+    }
+    
 
     //-- Construction du Message Html
     renderMessage()
@@ -59,51 +104,21 @@ class Search
     //-- Paramètre de la recherche par chaîne de caractères
     search()
     {
+        console.time("monTimer1"); // timer début performance
+        
         let items = [];
-        list.filtered.forEach(recipe => {
-
-            //terme recherché dans le titre
-            if(recipe.name.toLowerCase().indexOf(this.searchValue) >= 0)
+        list.filtered.forEach(recipe => 
+        {
+            if(this.recipeIsValid(recipe))
             {
-                items.push(recipe);
-                return; 
+                items.push(recipe)
             }
-
-            //terme recherché dans ustensils
-            recipe.ustensils.forEach(ustensil => {
-               if(ustensil.indexOf(this.searchValue) >= 0)
-                {
-                    items.push(recipe);
-                    return;
-                }
-            })
-
-            //terme recherché dans appareil
-            if(recipe.appliance.toLowerCase().indexOf(this.searchValue) >= 0)
-            {
-                items.push(recipe);
-                return; 
-            }
-            
-            //terme recherché dans description
-            if(recipe.description.indexOf(this.searchValue) >= 0)
-            {
-                items.push(recipe);
-                return; 
-            }
-         
-            // terme recherché dans ingrédients
-            recipe.ingredients.forEach(ingredient => {
-                
-                if(ingredient.ingredient.indexOf(this.searchValue) >= 0)
-                {
-                     items.push(recipe);
-                     return;
-                }
-            })
         })
+
+        console.timeEnd("monTimer1"); // timer fin performance
         return items;
     }
+    
 
     //-- Message s'affiche
     showMessage()
