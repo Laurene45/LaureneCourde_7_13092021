@@ -59,17 +59,27 @@ class Search
     //-- Paramètre de la recherche par terme
     search()
     {
+        console.time("monTimer2"); // timer début performance
+
         let items = [];
         list.filtered.forEach(recipe => {
+
+            let hasBeenAdded = false;
 
             recipe.terms.forEach(term =>
             {
                 if(term.indexOf(this.searchValue) > -1)
                 {
-                    items.push(recipe)
+                    hasBeenAdded = true;
                 }
-            })
-        })
+            });
+
+            if(hasBeenAdded)
+            {
+                items.push(recipe);
+            }
+        });
+        console.timeEnd("monTimer2"); // timer fin  performance
         return items; 
     }
 

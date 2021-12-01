@@ -19,6 +19,7 @@ class Recipe
         // recherche par termes
         this.name.split(' ').forEach(word => 
         {
+            word = word.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")
             if(this.isWordValid(word))
             {
                 this.terms.add(word);
@@ -28,6 +29,7 @@ class Recipe
         // recherche par description
         this.description.split(' ').forEach(word => 
         {
+            word = word.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")
             if(this.isWordValid(word))
             {
                 this.terms.add(word);
@@ -37,6 +39,7 @@ class Recipe
         // recherche par appliance
         this.appliance.split(' ').forEach(word => 
         {
+            word = word.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")
             if(this.isWordValid(word))
             {
                 this.terms.add(word);
@@ -49,6 +52,7 @@ class Recipe
             ustensil.split(' ').forEach(word => 
             {
                 if(this.isWordValid(word))
+                word = word.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")
                 {
                     this.terms.add(word);
                 }
@@ -60,6 +64,7 @@ class Recipe
         {
             item.ingredient.split(' ').forEach(word => 
             {
+                word = word.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")
                 if(this.isWordValid(word))
                 {
                     this.terms.add(word);
