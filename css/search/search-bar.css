@@ -52,7 +52,6 @@
 @media screen and (min-width: 900px) {
     #searchBar>i {
         top: 2.2rem;
-        margin-right: 1rem;
     }
 
     .searchBarInput {
@@ -60,10 +59,3 @@
     }
 }
 
-@media screen and (max-width: 512px) {
-    #searchBar>i {
-        top: 1.2rem;
-        margin-right: 1rem;
-    }
-
-}
