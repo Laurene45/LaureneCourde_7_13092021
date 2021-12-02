@@ -87,7 +87,6 @@
 #recipes>article>div.recipeTitle>span>i {
 	margin-right: .3rem;
 	margin-left: -25px;
-	
 }
 
 #recipes>article>img {
@@ -95,8 +94,7 @@
 	width: 23.75rem;
 }
 
-
-/* responsive */
+/* RESPONSIVE  */
 @media screen and (max-width: 768px) {
 	#recipes {
 		flex-direction: row;
@@ -118,6 +116,4 @@
 		flex-direction: column;
 		align-content: center;
 	}
-
-	
 }
