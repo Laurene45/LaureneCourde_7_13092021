@@ -171,7 +171,7 @@ class Filters
             <button id="dropdown-${this.type}">${this.type} <i class="fas fa-chevron-down" role="button"></i></button>
             <div id="menu-${this.type}" class="menu-${this.type}">
                 <label for="input-${this.type}"></label>
-                <input type="search" class="input-${this.type}" id="${this.type}" aria-label="Search through ingredients" placeholder="Rechercher un ingrédient">
+                <input type="search" class="input-${this.type}" id="${this.type}" aria-label="Search through ingredients" placeholder="Rechercher un ${this.type}">
                 <div>
                 <i class="fas fa-chevron-up" id="${this.type}-close" role="button"></i>
                 <div id="${this.type}-example"></div>
